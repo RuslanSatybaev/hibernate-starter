@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.time.LocalDate;
@@ -33,4 +35,7 @@ public class User {
 
     @Column(name = "age")
     private Integer age;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 }
