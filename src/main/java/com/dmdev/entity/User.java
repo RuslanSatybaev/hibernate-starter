@@ -1,10 +1,12 @@
 package com.dmdev.entity;
 
 import com.dmdev.converter.BirthdayConverter;
+import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.Column;
 import javax.persistence.Convert;
@@ -33,6 +35,10 @@ public class User {
 
     @Column(name = "birth_date")
     private Birthday birthDate;
+
+    @Type(type = "jsonb")
+    @Column(name = "info")
+    private String info;
 
     @Enumerated(EnumType.STRING)
     private Role role;
