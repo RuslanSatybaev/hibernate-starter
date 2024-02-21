@@ -20,7 +20,8 @@ public class HibernateRunner {
              Session session = sessionFactory.openSession()) {
             session.beginTransaction();
             User user = session.get(User.class, "ivan3@gmail.com");
-
+            user.setLastname("Satybaeva");
+            session.flush();
             session.getTransaction().commit();
         }
     }
