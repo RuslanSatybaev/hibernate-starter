@@ -1,6 +1,7 @@
 package com.dmdev;
 
 import com.dmdev.converter.BirthdayConverter;
+import com.dmdev.entity.PersonalInfo;
 import com.dmdev.entity.User;
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import lombok.extern.slf4j.Slf4j;
@@ -21,9 +22,11 @@ public class HibernateRunner {
 
         User user1 = User
                 .builder()
-                .username("ivan3@gmail.com")
-                .firstname("Ivan")
-                .lastname("Ivanov")
+                .username("petr@gmail.com")
+                .personalInfo(PersonalInfo.builder()
+                        .firstname("Petrov")
+                        .lastname("Petr")
+                        .build())
                 .build();
         log.info("User entity is in transient state, object: {}", user1);
 
