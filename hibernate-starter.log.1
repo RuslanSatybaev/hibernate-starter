@@ -1,0 +1,73 @@
+[2024-02-21 19:05:21,492] TRACE [org.hibernate.metamodel.internal.AttributeFactory: 179] Building identifier attribute [User.username]
+[2024-02-21 19:05:21,492] TRACE [org.hibernate.metamodel.internal.AttributeFactory: 492] Starting attribute metadata determination [username]
+[2024-02-21 19:05:21,492] TRACE [org.hibernate.metamodel.internal.AttributeFactory: 497]     Determined member [private java.lang.String com.dmdev.entity.User.username]
+[2024-02-21 19:05:21,492] TRACE [org.hibernate.metamodel.internal.AttributeFactory: 501]     Determined type [name=string, class=org.hibernate.type.StringType]
+[2024-02-21 19:05:21,492] TRACE [org.hibernate.metamodel.internal.AttributeFactory: 90] Building attribute [User.birthDate]
+[2024-02-21 19:05:21,492] TRACE [org.hibernate.metamodel.internal.AttributeFactory: 492] Starting attribute metadata determination [birthDate]
+[2024-02-21 19:05:21,492] TRACE [org.hibernate.metamodel.internal.AttributeFactory: 497]     Determined member [private com.dmdev.entity.Birthday com.dmdev.entity.User.birthDate]
+[2024-02-21 19:05:21,492] TRACE [org.hibernate.metamodel.internal.AttributeFactory: 501]     Determined type [name=converted::com.dmdev.converter.BirthdayConverter, class=org.hibernate.type.descriptor.converter.AttributeConverterTypeAdapter]
+[2024-02-21 19:05:21,492] TRACE [org.hibernate.metamodel.internal.AttributeFactory: 90] Building attribute [User.firstname]
+[2024-02-21 19:05:21,492] TRACE [org.hibernate.metamodel.internal.AttributeFactory: 492] Starting attribute metadata determination [firstname]
+[2024-02-21 19:05:21,492] TRACE [org.hibernate.metamodel.internal.AttributeFactory: 497]     Determined member [private java.lang.String com.dmdev.entity.User.firstname]
+[2024-02-21 19:05:21,492] TRACE [org.hibernate.metamodel.internal.AttributeFactory: 501]     Determined type [name=string, class=org.hibernate.type.StringType]
+[2024-02-21 19:05:21,492] TRACE [org.hibernate.metamodel.internal.AttributeFactory: 90] Building attribute [User.info]
+[2024-02-21 19:05:21,492] TRACE [org.hibernate.metamodel.internal.AttributeFactory: 492] Starting attribute metadata determination [info]
+[2024-02-21 19:05:21,492] TRACE [org.hibernate.metamodel.internal.AttributeFactory: 497]     Determined member [private java.lang.String com.dmdev.entity.User.info]
+[2024-02-21 19:05:21,492] TRACE [org.hibernate.metamodel.internal.AttributeFactory: 501]     Determined type [name=jsonb, class=com.vladmihalcea.hibernate.type.json.JsonBinaryType]
+[2024-02-21 19:05:21,492] TRACE [org.hibernate.metamodel.internal.AttributeFactory: 90] Building attribute [User.lastname]
+[2024-02-21 19:05:21,492] TRACE [org.hibernate.metamodel.internal.AttributeFactory: 492] Starting attribute metadata determination [lastname]
+[2024-02-21 19:05:21,492] TRACE [org.hibernate.metamodel.internal.AttributeFactory: 497]     Determined member [private java.lang.String com.dmdev.entity.User.lastname]
+[2024-02-21 19:05:21,492] TRACE [org.hibernate.metamodel.internal.AttributeFactory: 501]     Determined type [name=string, class=org.hibernate.type.StringType]
+[2024-02-21 19:05:21,492] TRACE [org.hibernate.metamodel.internal.AttributeFactory: 90] Building attribute [User.role]
+[2024-02-21 19:05:21,492] TRACE [org.hibernate.metamodel.internal.AttributeFactory: 492] Starting attribute metadata determination [role]
+[2024-02-21 19:05:21,492] TRACE [org.hibernate.metamodel.internal.AttributeFactory: 497]     Determined member [private com.dmdev.entity.Role com.dmdev.entity.User.role]
+[2024-02-21 19:05:21,492] TRACE [org.hibernate.metamodel.internal.AttributeFactory: 501]     Determined type [name=org.hibernate.type.EnumType, class=org.hibernate.type.CustomType]
+[2024-02-21 19:05:21,492] TRACE [org.hibernate.metamodel.internal.MetadataContext: 277] Completed entity [com.dmdev.entity.User]
+[2024-02-21 19:05:21,503] DEBUG [org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator: 65] No actions specified; doing nothing
+[2024-02-21 19:05:21,504] TRACE [org.hibernate.service.internal.AbstractServiceRegistryImpl: 233] Initializing service [role=org.hibernate.engine.transaction.jta.platform.spi.JtaPlatform]
+[2024-02-21 19:05:21,504] DEBUG [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: 43] No JtaPlatform was specified, checking resolver
+[2024-02-21 19:05:21,504] TRACE [org.hibernate.service.internal.AbstractServiceRegistryImpl: 233] Initializing service [role=org.hibernate.engine.transaction.jta.platform.spi.JtaPlatformResolver]
+[2024-02-21 19:05:21,504] DEBUG [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformResolverInitiator: 33] No JtaPlatformResolver was specified, using default [org.hibernate.engine.transaction.jta.platform.internal.StandardJtaPlatformResolver]
+[2024-02-21 19:05:21,504] DEBUG [org.hibernate.engine.transaction.jta.platform.internal.StandardJtaPlatformResolver: 137] Could not resolve JtaPlatform, using default [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2024-02-21 19:05:21,504] INFO [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: 52] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2024-02-21 19:05:21,504] DEBUG [org.hibernate.query.spi.NamedQueryRepository: 153] Checking 0 named HQL queries
+[2024-02-21 19:05:21,504] DEBUG [org.hibernate.query.spi.NamedQueryRepository: 167] Checking 0 named SQL queries
+[2024-02-21 19:05:21,504] DEBUG [org.hibernate.service.internal.SessionFactoryServiceRegistryImpl: 92] EventListenerRegistry access via ServiceRegistry is deprecated.  Use `sessionFactory.getEventEngine().getListenerRegistry()` instead
+[2024-02-21 19:05:21,514] TRACE [org.hibernate.type.spi.TypeConfiguration$Scope: 202] Handling #sessionFactoryCreated from [org.hibernate.internal.SessionFactoryImpl@7c84195] for TypeConfiguration
+[2024-02-21 19:05:21,515] DEBUG [org.hibernate.internal.SessionFactoryRegistry: 51] Initializing SessionFactoryRegistry : org.hibernate.internal.SessionFactoryRegistry@7b6c6e70
+[2024-02-21 19:05:21,516] TRACE [org.hibernate.service.internal.AbstractServiceRegistryImpl: 233] Initializing service [role=org.hibernate.engine.jndi.spi.JndiService]
+[2024-02-21 19:05:21,516] DEBUG [org.hibernate.internal.SessionFactoryRegistry: 73] Registering SessionFactory: ae5969cd-3f25-41ab-b2df-74c4a5c9c6ac (<unnamed>)
+[2024-02-21 19:05:21,516] DEBUG [org.hibernate.internal.SessionFactoryRegistry: 80] Not binding SessionFactory to JNDI, no JNDI name configured
+[2024-02-21 19:05:21,516] TRACE [org.hibernate.internal.SessionFactoryImpl$SessionBuilderImpl: 1305] Opening Hibernate Session.  tenant=null
+[2024-02-21 19:05:21,546] TRACE [org.hibernate.service.internal.AbstractServiceRegistryImpl: 233] Initializing service [role=org.hibernate.stat.spi.StatisticsImplementor]
+[2024-02-21 19:05:21,546] DEBUG [org.hibernate.stat.internal.StatisticsInitiator: 101] Statistics initialized [enabled=false]
+[2024-02-21 19:05:21,546] TRACE [org.hibernate.service.internal.AbstractServiceRegistryImpl: 233] Initializing service [role=org.hibernate.jmx.spi.JmxService]
+[2024-02-21 19:05:21,546] TRACE [org.hibernate.internal.SessionImpl: 280] Opened Session [d7bc0b8c-ab97-4ec2-9f3a-880fdf341fbd] at timestamp: 1708517121527
+[2024-02-21 19:05:21,546] DEBUG [org.hibernate.engine.transaction.internal.TransactionImpl: 53] On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+[2024-02-21 19:05:21,546] DEBUG [org.hibernate.engine.transaction.internal.TransactionImpl: 81] begin
+[2024-02-21 19:05:21,546] TRACE [org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor: 71] Preparing to begin transaction via JDBC Connection.setAutoCommit(false)
+[2024-02-21 19:05:21,546] TRACE [org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor: 73] Transaction begun via JDBC Connection.setAutoCommit(false)
+[2024-02-21 19:05:21,546] TRACE [org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl: 177] ResourceLocalTransactionCoordinatorImpl#afterBeginCallback
+[2024-02-21 19:05:21,546] TRACE [com.dmdev.HibernateRunner: 33] Transaction is created, org.hibernate.engine.transaction.internal.TransactionImpl@795f8317
+[2024-02-21 19:05:21,556] TRACE [org.hibernate.engine.spi.IdentifierValue: 98] ID unsaved-value strategy UNDEFINED
+[2024-02-21 19:05:21,556] TRACE [org.hibernate.persister.entity.AbstractEntityPersister: 1549] Getting current persistent state for: [com.dmdev.entity.User#ivan3@gmail.com]
+[2024-02-21 19:05:21,556] DEBUG [org.hibernate.SQL: 144] 
+    select
+        user_.username,
+        user_.birth_date as birth_da2_0_,
+        user_.firstname as firstnam3_0_,
+        user_.info as info4_0_,
+        user_.lastname as lastname5_0_,
+        user_.role as role6_0_ 
+    from
+        public.users user_ 
+    where
+        user_.username=?
+[2024-02-21 19:05:21,556] TRACE [org.hibernate.resource.jdbc.internal.ResourceRegistryStandardImpl: 83] Registering statement [select user_.username, user_.birth_date as birth_da2_0_, user_.firstname as firstnam3_0_, user_.info as info4_0_, user_.lastname as lastname5_0_, user_.role as role6_0_ from public.users user_ where user_.username=?]
+[2024-02-21 19:05:21,556] TRACE [org.hibernate.type.descriptor.sql.BasicBinder: 64] binding parameter [1] as [VARCHAR] - [ivan3@gmail.com]
+[2024-02-21 19:05:21,566] TRACE [org.hibernate.resource.jdbc.internal.ResourceRegistryStandardImpl: 214] Registering result set [org.postgresql.jdbc.PgResultSet@2eed37f4]
+[2024-02-21 19:05:21,566] TRACE [org.hibernate.type.descriptor.sql.BasicExtractor: 50] extracted value ([birth_da2_0_] : [TIMESTAMP]) - [null]
+[2024-02-21 19:05:21,566] DEBUG [org.hibernate.type.descriptor.converter.AttributeConverterSqlTypeDescriptorAdapter: 141] Converted value on extraction: null -> null
+[2024-02-21 19:05:21,566] TRACE [org.hibernate.type.descriptor.sql.BasicExtractor: 60] extracted value ([firstnam3_0_] : [VARCHAR]) - [Ivan]
+[2024-02-21 19:05:21,566] TRACE [org.hibernate.type.descriptor.sql.BasicExtractor: 50] extracted value ([info4_0_] : [OTHER]) - [null]
+[2024-02-21 19:05:21,566] TRACE [org.hibernate.type.descriptor.sql.BasicExtractor: 60] extracted value ([lastname5_0_] : [VARCHAR]) - [Ivanov]
