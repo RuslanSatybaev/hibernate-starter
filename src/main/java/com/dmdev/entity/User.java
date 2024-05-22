@@ -10,10 +10,14 @@ import org.hibernate.annotations.TypeDef;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Data
@@ -25,17 +29,26 @@ import javax.persistence.Table;
 @TypeDef(name = "dmdev", typeClass = JsonBinaryType.class)
 public class User {
 
-    @EmbeddedId
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
+
     @AttributeOverride(name = "birthDate", column = @Column(name = "birth_date"))
     private PersonalInfo personalInfo;
 
-    @Column(unique = true)
+    @Column(name = "username", unique = true)
     private String username;
 
-
     @Type(type = "dmdev")
+    @Column(name = "info")
     private String info;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "role")
     private Role role;
+
+    @ManyToOne
+    @JoinColumn(name = "company_id")
+    private Company company;
 }

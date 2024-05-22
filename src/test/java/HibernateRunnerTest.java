@@ -40,9 +40,6 @@ class HibernateRunnerTest {
         User user = User
                 .builder()
                 .username("ivan@gmail.com")
-                .firstname("Ivan")
-                .lastname("Ivanov")
-
                 .build();
 
         String sql = """
