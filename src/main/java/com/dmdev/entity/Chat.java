@@ -7,42 +7,35 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
+@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString(exclude = "users")
-@EqualsAndHashCode(of = "name")
 @Builder
-@Entity
-@Table(name = "company", schema = "public")
-public class Company {
+@EqualsAndHashCode(of = "name")
+@ToString(exclude = "users")
+@Table(name = "chat", schema = "public")
+public class Chat {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer id;
+    private Long id;
 
-    @Column(name = "name", nullable = false, unique = true)
+    @Column(name = "name", unique = true, nullable = false)
     private String name;
 
     @Builder.Default
-    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
+    @ManyToMany(mappedBy = "chats")
     private Set<User> users = new HashSet<>();
-
-    public void addUser(User user) {
-        users.add(user);
-        user.setCompany(this);
-    }
 }
