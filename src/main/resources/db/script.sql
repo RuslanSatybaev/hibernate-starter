@@ -12,7 +12,8 @@ CREATE TABLE users
 
 CREATE TABLE profile
 (
-    user_id BIGINT PRIMARY KEY REFERENCES users (id),
+    id BIGSERIAL PRIMARY KEY ,
+    user_id BIGINT NOT NULL UNIQUE REFERENCES users (id),
     street VARCHAR(128),
     language CHAR(2)
 );
