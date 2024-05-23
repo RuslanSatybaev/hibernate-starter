@@ -23,7 +23,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(exclude = "users")
-@EqualsAndHashCode(exclude = "users")
+@EqualsAndHashCode(of = "name")
 @Builder
 @Entity
 @Table(name = "company", schema = "public")
@@ -34,7 +34,7 @@ public class Company {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false, unique = true)
     private String name;
 
     @Builder.Default
