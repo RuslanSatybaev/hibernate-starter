@@ -1,5 +1,4 @@
 import com.dmdev.entity.Company;
-import com.dmdev.entity.Profile;
 import com.dmdev.entity.User;
 import com.dmdev.util.HibernateUtil;
 import lombok.Cleanup;
@@ -27,16 +26,8 @@ class HibernateRunnerTest {
              var session = sessionFactory.openSession()) {
             session.beginTransaction();
 
-            var user = User.builder()
-                    .username("test2@gmail.com")
-                    .build();
-            var profile = Profile.builder()
-                    .language("ru")
-                    .street("Kolasa 18")
-                    .build();
-
-            session.save(user);
-            profile.setUser(user);
+            var user = session.get(User.class, 12L);
+            System.out.println();
 
             session.getTransaction().commit();
         }
