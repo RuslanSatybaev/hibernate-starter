@@ -1,4 +1,5 @@
 import com.dmdev.entity.Company;
+import com.dmdev.entity.Profile;
 import com.dmdev.entity.User;
 import com.dmdev.util.HibernateUtil;
 import lombok.Cleanup;
@@ -19,6 +20,40 @@ import static java.util.Optional.ofNullable;
 import static java.util.stream.Collectors.joining;
 
 class HibernateRunnerTest {
+
+    @Test
+    void checkOneToOne() {
+        try (var sessionFactory = HibernateUtil.buildSessionFactory();
+             var session = sessionFactory.openSession()) {
+            session.beginTransaction();
+
+            var user = User.builder()
+                    .username("test2@gmail.com")
+                    .build();
+            var profile = Profile.builder()
+                    .language("ru")
+                    .street("Kolasa 18")
+                    .build();
+
+            session.save(user);
+            profile.setUser(user);
+
+            session.getTransaction().commit();
+        }
+    }
+
+    @Test
+    void checkOrhanRemoval() {
+        try (var sessionFactory = HibernateUtil.buildSessionFactory();
+             var session = sessionFactory.openSession()) {
+            session.beginTransaction();
+
+            Company company = session.getReference(Company.class, 1);
+            company.getUsers().removeIf(user -> user.getId().equals(7L));
+
+            session.getTransaction().commit();
+        }
+    }
 
     @Test
     void checkLazyInitialization() {
