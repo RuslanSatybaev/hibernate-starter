@@ -2,8 +2,6 @@ import com.dmdev.entity.Company;
 import com.dmdev.entity.User;
 import com.dmdev.util.HibernateUtil;
 import lombok.Cleanup;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.junit.jupiter.api.Test;
 
 import javax.persistence.Column;
@@ -15,13 +13,25 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.Arrays;
 
 import static java.util.Optional.ofNullable;
 import static java.util.stream.Collectors.joining;
 
 class HibernateRunnerTest {
+
+    @Test
+    void checkLazyInitialization() {
+        Company company = null;
+        try (var sessionFactory = HibernateUtil.buildSessionFactory();
+             var session = sessionFactory.openSession()) {
+            session.beginTransaction();
+            company = session.get(Company.class, 6);
+            session.getTransaction().commit();
+        }
+        var users = company.getUsers();
+        System.out.println(users.size());
+    }
 
     @Test
     void deleteCompany() {
@@ -34,6 +44,7 @@ class HibernateRunnerTest {
 
         session.getTransaction().commit();
     }
+
     @Test
     void addUserToNewCompany() {
         @Cleanup var sessionFactory = HibernateUtil.buildSessionFactory();
