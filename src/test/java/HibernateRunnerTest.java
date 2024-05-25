@@ -2,6 +2,7 @@ import com.dmdev.entity.Chat;
 import com.dmdev.entity.Company;
 import com.dmdev.entity.User;
 import com.dmdev.util.HibernateUtil;
+import com.dmdev.entity.UserChat;
 import lombok.Cleanup;
 import org.junit.jupiter.api.Test;
 
@@ -14,6 +15,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.Instant;
 import java.util.Arrays;
 
 import static java.util.Optional.ofNullable;
@@ -27,12 +29,17 @@ class HibernateRunnerTest {
              var session = sessionFactory.openSession()) {
             session.beginTransaction();
 
-            var user = session.get(User.class, 13L);
-            var chat = Chat.builder()
-                    .name("dmdev")
+            var user = session.get(User.class, 1L);
+            var chat = session.get(Chat.class, 1L);
+
+            var userChat = UserChat.builder()
+                    .createdAt(Instant.now())
+                    .createdBy(user.getUsername())
                     .build();
-            user.addChat(chat);
-            session.save(chat);
+            userChat.setUser(user);
+            userChat.setChat(chat);
+
+            session.save(userChat);
 
             session.getTransaction().commit();
         }
