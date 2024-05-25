@@ -1,13 +1,9 @@
 package com.dmdev.entity;
 
-import com.dmdev.entity.Chat;
-import com.dmdev.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
