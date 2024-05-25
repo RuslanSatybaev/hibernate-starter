@@ -1,8 +1,9 @@
 import com.dmdev.entity.Chat;
 import com.dmdev.entity.Company;
+import com.dmdev.entity.LocaleInfo;
 import com.dmdev.entity.User;
-import com.dmdev.util.HibernateUtil;
 import com.dmdev.entity.UserChat;
+import com.dmdev.util.HibernateUtil;
 import lombok.Cleanup;
 import org.junit.jupiter.api.Test;
 
@@ -22,6 +23,20 @@ import static java.util.Optional.ofNullable;
 import static java.util.stream.Collectors.joining;
 
 class HibernateRunnerTest {
+
+    @Test
+    void localeInfo() {
+        try (var sessionFactory = HibernateUtil.buildSessionFactory();
+             var session = sessionFactory.openSession()) {
+            session.beginTransaction();
+
+            var company = session.get(Company.class, 1);
+            company.getLocales().add(LocaleInfo.of("ru", "Описание на русском"));
+            company.getLocales().add(LocaleInfo.of("en", "English description"));
+
+            session.getTransaction().commit();
+        }
+    }
 
     @Test
     void checkManyToMany() {
