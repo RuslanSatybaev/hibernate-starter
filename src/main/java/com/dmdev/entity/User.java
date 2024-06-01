@@ -50,9 +50,9 @@ public class User implements Comparable<User> {
     @Column(name = "username", unique = true)
     private String username;
 
-    @Type(type = "dmdev")
-    @Column(name = "info")
-    private String info;
+//    @Type(type = "dmdev")
+//    @Column(name = "info")
+//    private String info;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "role")
