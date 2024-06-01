@@ -16,6 +16,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -42,11 +43,13 @@ public class Company {
 
     @Builder.Default
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OrderBy("username DESC, personalInfo.lastname ASC")
     private Set<User> users = new HashSet<>();
 
     @Builder.Default
     @ElementCollection
     @CollectionTable(name = "company_locale")
+    @Column(name = "description")
     private List<LocaleInfo> locales = new ArrayList<>();
 
     public void addUser(User user) {
