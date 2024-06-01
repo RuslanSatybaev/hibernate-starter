@@ -1,6 +1,5 @@
 import com.dmdev.entity.Chat;
 import com.dmdev.entity.Company;
-import com.dmdev.entity.LocaleInfo;
 import com.dmdev.entity.User;
 import com.dmdev.entity.UserChat;
 import com.dmdev.util.HibernateUtil;
@@ -31,7 +30,7 @@ class HibernateRunnerTest {
             session.beginTransaction();
 
             var company = session.get(Company.class, 1);
-            company.getUsers().forEach(System.out::println);
+            company.getUsers().forEach((k, v) -> System.out.println(v));
             session.getTransaction().commit();
         }
     }
@@ -78,7 +77,7 @@ class HibernateRunnerTest {
             session.beginTransaction();
 
             Company company = session.getReference(Company.class, 1);
-            company.getUsers().removeIf(user -> user.getId().equals(7L));
+
 
             session.getTransaction().commit();
         }
